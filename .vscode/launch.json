@@ -1,0 +1,40 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Reservas Hídricas - Menu (MySQL)",
+      "type": "dart",
+      "request": "launch",
+      "program": "${workspaceFolder}/bin/main.dart",
+      "env": {
+        "DB_HOST": "127.0.0.1",
+        "DB_PORT": "3306",
+        "DB_USER": "root",
+        "DB_PASS": "${input:dbSenha}",
+        "DB_NAME": "reservas_hidricas"
+      }
+    },
+    {
+      "name": "Reservas Hídricas - Popular Banco (seed)",
+      "type": "dart",
+      "request": "launch",
+      "program": "${workspaceFolder}/bin/popular_banco.dart",
+      "args": ["--estacoes", "5", "--leituras", "300"],
+      "env": {
+        "DB_HOST": "127.0.0.1",
+        "DB_PORT": "3306",
+        "DB_USER": "root",
+        "DB_PASS": "${input:dbSenha}",
+        "DB_NAME": "reservas_hidricas"
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "id": "dbSenha",
+      "type": "promptString",
+      "description": "Informe a senha do MySQL (DB_PASS)",
+      "password": true
+    }
+  ]
+}
